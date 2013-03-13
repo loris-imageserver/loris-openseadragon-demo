@@ -1,0 +1,55 @@
+/*
+ ALL lifted from https://github.com/openseadragon/openseadragon.github.com
+ */
+body {
+    margin:     0;
+    color:          #333;
+    font-family: Helvetica, Arial, FreeSans, san-serif;
+    background-color: #121621;/*#0e182e;*/
+}
+#container {
+    margin:     0 auto;
+    width:      800px;
+    /*padding:    1.0em;*/
+    /*background-color: #EEE; */
+
+}
+
+.openseadragon
+{
+    width:      800px;
+    height:     600px;
+    border:     1px solid black;
+    color:      #333; /* text color for messages */
+    background-color: black;
+}
+.openseadragon-small
+{
+    width:      40px;
+    height:     30px;
+    border:     1px solid black;
+    color:      #333; /* text color for messages */
+    background-color: black;
+}
+.demoheading {
+    color: #437AB2; 
+    padding: 0 0 0 1em;
+}
+.toolbar
+{
+    width:      800px;
+    height:     33px;
+    border:     none;
+    color:      #333;
+    padding:    4px;
+    background-color: transparent;
+}
+.toolbar.fullpage{
+    width:      100%;
+    border:     none;
+    position:   fixed;
+    z-index:    999999;
+    left:       0;
+    top:        0;
+    background-color: #ccc;
+}
