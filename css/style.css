@@ -10,6 +10,7 @@ body {
 #container {
     margin:     0 auto;
     width:      800px;
+
     /*padding:    1.0em;*/
     /*background-color: #EEE; */
 
@@ -18,7 +19,7 @@ body {
 .openseadragon
 {
     width:      800px;
-    height:     600px;
+    height:     800px;
     border:     1px solid black;
     color:      #333; /* text color for messages */
     background-color: black;

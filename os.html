@@ -4,7 +4,7 @@
 		<meta charset="utf-8" />
   		<title>JSONP Test</title>
   		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-  		<script src="js/openseadragon.min.js"></script>
+  		<script src="js/openseadragon.js"></script>
   		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body>
@@ -24,17 +24,32 @@
 		}
 
 		function update_tileSources(data) {
-			data.image_host = "http://img.princeton.edu/loris"; // shouldn't need this
+			// data.image_host = "http://ltopstroop2.princeton.edu:5004"; // shouldn't need this
 			osd_config.tileSources.push(data);
 		}
 
 		$.when (
-			$.getJSON('http://img.princeton.edu/loris/pudl0001/4609321/s42/00000001/info.json?callback=?',
+			$.getJSON('http://libimages.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000001.jp2/info.json?callback=?',
 				function(data) {
 					update_tileSources(data);
 				}
 			),
-			$.getJSON('http://img.princeton.edu/loris/pudl0001/4609321/s42/00000002/info.json?callback=?',
+			$.getJSON('http://libimages.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000002.jp2/info.json?callback=?',
+				function(data) {
+					update_tileSources(data);
+				}
+			),
+			$.getJSON('http://libimages.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000003.jp2/info.json?callback=?',
+				function(data) {
+					update_tileSources(data);
+				}
+			),
+			$.getJSON('http://libimages.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000004.jp2/info.json?callback=?',
+				function(data) {
+					update_tileSources(data);
+				}
+			),
+			$.getJSON('http://libimages.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000005.jp2/info.json?callback=?',
 				function(data) {
 					update_tileSources(data);
 				}
@@ -42,7 +57,6 @@
 		).then( function() {
 			OpenSeadragon(osd_config)
 		})
-
 		</script>
 	</body>
 </html>
