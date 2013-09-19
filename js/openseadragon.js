@@ -1,6 +1,6 @@
 //! OpenSeadragon 0.9.130
-//! Built on 2013-09-11
-//! Git commit: v0.9.130-26-g8315eec-dirty
+//! Built on 2013-09-18
+//! Git commit: v0.9.130-28-g4b4325c-dirty
 //! http://openseadragon.github.io
 //! License: http://openseadragon.github.io/license/
 
@@ -7472,10 +7472,9 @@ $.extend( $.IIIF11TileSource.prototype, $.TileSource.prototype, {
 
         return configureFromObject( this, data );
     },
-
     /**
      * Responsible for retreiving the url which will return an image for the
-     * region speified by the given x, y, and level components.
+     * region specified by the given x, y, and level components.
      * @function
      * @name OpenSeadragon.IIIF11TileSource.prototype.getTileUrl
      * @param {Number} level - z index
@@ -7496,14 +7495,6 @@ $.extend( $.IIIF11TileSource.prototype, $.TileSource.prototype, {
             level_width = Math.ceil( this.width * scale ),
             level_height = Math.ceil( this.height * scale ),
 
-            //## get iiif size
-            // Note that this uses pixels rather than percents (as in 
-            // IIIF11TileSource), which will be more precise (i.e. the 'right 
-            // 50% of 11px' case') and easier to pre-bake without worring about 
-            // different browsers' decimal precision (if desired).
-            iiif_size = level_width + "," + level_height,
-
-
             //## iiif region
             iiif_tile_size_width = Math.ceil( this.tileSize / scale ),
             iiif_tile_size_height = Math.ceil( this.tileSize / scale ),
@@ -7511,27 +7502,25 @@ $.extend( $.IIIF11TileSource.prototype, $.TileSource.prototype, {
             iiif_tile_x,
             iiif_tile_y,
             iiif_tile_w,
-            iiif_tile_h;
-
-        
+            iiif_tile_h,
+            iiif_size,
+            uri;
 
         if ( level_width < this.tile_width && level_height < this.tile_height ){
+            iiif_size = level_width + "," + level_height;
             iiif_region = 'full';
         } else {
+
             iiif_tile_x = x * iiif_tile_size_width;
             iiif_tile_y = y * iiif_tile_size_height;
             iiif_tile_w = Math.min( iiif_tile_size_width, this.width - iiif_tile_x );
             iiif_tile_h = Math.min( iiif_tile_size_height, this.height - iiif_tile_y );
+            iiif_size = Math.ceil(iiif_tile_w * scale) + "," +  Math.ceil(iiif_tile_h * scale);
             iiif_region = [ iiif_tile_x, iiif_tile_y, iiif_tile_w, iiif_tile_h ].join(',');
         }
 
-        return [
-            this['@id'],
-            iiif_region,
-            iiif_size,
-            IIIF_ROTATION,
-            IIIF_QUALITY
-        ].join('/');
+        uri = [ this['@id'], iiif_region, iiif_size, IIIF_ROTATION, IIIF_QUALITY ].join('/');
+        return uri;
     }
 
 

@@ -2,55 +2,53 @@
  ALL lifted from https://github.com/openseadragon/openseadragon.github.com
  */
 body {
-    margin:     0;
-    color:          #333;
+    margin: 0;
+    padding: 0;
+    color: #333;
     font-family: Helvetica, Arial, FreeSans, san-serif;
-    background-color: #121621;/*#0e182e;*/
+    background-color: #0E182E;
+    border: none;
 }
+
 #container {
-    margin:     0 auto;
-    width:      800px;
-
-    /*padding:    1.0em;*/
-    /*background-color: #EEE; */
-
+    margin:  0;
+    padding: 0;
+    border: none;
+    background-color: yellow;
+    text-align: center;
 }
 
-.openseadragon
-{
-    width:      800px;
-    height:     800px;
-    border:     1px solid black;
-    color:      #333; /* text color for messages */
+#viewer {
+    border: none;
+    color: #333; /* text color for messages */
     background-color: black;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
-.openseadragon-small
-{
+
+.toolbar {
+    border: none;
+    color: #333;
+    padding: 4px;
+    background-color: transparent;
+}
+
+.toolbar.fullpage{
+    width: 100%;
+    border: none;
+    position: fixed;
+    z-index: 999999;
+    left: 0;
+    top: 0;
+    background-color: #ccc;
+}
+/*
+.openseadragon-small {
     width:      40px;
     height:     30px;
     border:     1px solid black;
-    color:      #333; /* text color for messages */
+    color:      #333; / * text color for messages * /
     background-color: black;
 }
-.demoheading {
-    color: #437AB2; 
-    padding: 0 0 0 1em;
-}
-.toolbar
-{
-    width:      800px;
-    height:     33px;
-    border:     none;
-    color:      #333;
-    padding:    4px;
-    background-color: transparent;
-}
-.toolbar.fullpage{
-    width:      100%;
-    border:     none;
-    position:   fixed;
-    z-index:    999999;
-    left:       0;
-    top:        0;
-    background-color: #ccc;
-}
+*/
