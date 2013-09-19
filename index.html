@@ -69,6 +69,11 @@
 				function(data) {
 					update_tileSources(data);
 				}
+			),
+			$.getJSON('http://libimages.princeton.edu/loris/pudl0022%2F4623565%2F00000001.jp2/info.json?callback=?',
+				function(data) {
+					update_tileSources(data);
+				}
 			)
 		).then( function() {
 			OpenSeadragon(osd_config)
