@@ -1,103 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-  		<title>Loris / OpenSeadraon Demo</title>
-  		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-  		<script src="js/openseadragon.min.js"></script>
-  		<link rel="stylesheet" type="text/css" href="css/style.css">
-	</head>
-	<body>
-		<div id="container">
-			<div id="viewer" class="openseadragon"></div>
-		</div>
-
-		<script>
-		// var viewerPadding = 100;
-    var height = jQuery(window).height();
-    var width = jQuery(window).width();
-    
-    $('#viewer').width( width );
-    $('#viewer').height( height );
-    $('#container').width( width );
-    $('#container').height( height );
-
-    $('.toolbar').width( width );
-
-		var osd_config = {
-			id: "viewer",
-			prefixUrl: "images/",
-			preserveViewport: true,
-			showNavigator:  true,
-			visibilityRatio: 1,
-			minZoomLevel: 1,
-			tileSources: []
-		}
-
-		function update_tileSources(data) {
-			osd_config.tileSources.push(data);
-		}
-
-		$.when (
-
-			$.getJSON('http://libimages.princeton.edu/loris/pudl0001%2F5138415%2F00000011.jp2/info.json?callback=?',
-				function(data) {
-					update_tileSources(data);
-				}
-			),
-			$.getJSON('http://libimages.princeton.edu/loris/pudl0033%2F2007%2F03823%2F00000001.jp2/info.json?callback=?',
-				function(data) {
-					update_tileSources(data);
-				}
-			),
-			$.getJSON('http://libimages.princeton.edu/loris/pudl0017%2Fwc064%2FX%2FX0028%2F00000001.jp2/info.json?callback=?',
-				function(data) {
-					update_tileSources(data);
-				}
-			),
-			$.getJSON('http://libimages.princeton.edu/loris/pudl0072%2F3947894%2F01%2F00000082.jp2/info.json?callback=?',
-				function(data) {
-					update_tileSources(data);
-				}
-			),
-			$.getJSON('http://libimages.princeton.edu/loris/pudl0100%2Fposters%2Feg1_0484%2F00000001.jp2/info.json?callback=?',
-				function(data) {
-					update_tileSources(data);
-				}
-			),
-			$.getJSON('http://libimages.princeton.edu/loris/pudl0052%2F6131707%2F00000001.jp2/info.json?callback=?',
-				function(data) {
-					update_tileSources(data);
-				}
-			),
-			$.getJSON('http://libimages.princeton.edu/loris/pudl0022%2F4623565%2F00000001.jp2/info.json?callback=?',
-				function(data) {
-					update_tileSources(data);
-				}
-			),$.getJSON('http://libimages.princeton.edu/loris/pudl0032%2F62g%2F00000007.jp2/info.json?callback=?',
-        function(data) {
-                update_tileSources(data);
-        }
-			),
-			$.getJSON('http://libimages.princeton.edu/loris/pudl0071%2F4055459%2F01%2F00000030.jp2/info.json?callback=?',
-        function(data) {
-                update_tileSources(data);
-        }
-			),
-			$.getJSON('http://libimages.princeton.edu/loris/pudl0015%2F2006%2F01347%2F00000001.jp2/info.json?callback=?',
-        function(data) {
-                update_tileSources(data);
-        }
-			),
-			$.getJSON('http://libimages.princeton.edu/loris/pudl0033%2F2007%2F03876%2F00000001.jp2/info.json?callback=?',
-        function(data) {
-                update_tileSources(data);
-        }
-			)
-
-		).then( function() {
-			OpenSeadragon(osd_config)
-		})
-		</script>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+      <title>Loris / OpenSeadraon Demo</title>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+      <script src="js/openseadragon.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+    <div id="container">
+      <div id="viewer" class="openseadragon"></div>
+    </div>
+    <script src="js/demo.js"></script>
+  </body>
 </html>
