@@ -55,9 +55,9 @@ feedMe = getUrlVars()['feedme'];
 if (feedMe) {
 	$.when (
 	  $.getJSON(SERVER + feedMe + CB,
-		function(data) {
-			updateTileSources(data);
-		}
+			function(data) {
+				updateTileSources(data);
+			}
 	  )
 	).then( function() {
 	  OpenSeadragon(osd_config)
@@ -66,7 +66,7 @@ if (feedMe) {
 	// see http://nurkiewicz.blogspot.com/2013/03/promises-and-deferred-objects-in-jquery.html
 	var promises = []
 	for(var i = 0; i < SAMPLES.length; i++) {
-		toGet = SERVER + SAMPLES[i] + CB
+		var toGet = SERVER + SAMPLES[i] + CB
 		promises.push( $.getJSON(toGet, function(data) { 
 					updateTileSources(data); 
 				} 
