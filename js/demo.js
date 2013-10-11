@@ -27,9 +27,16 @@ $('#container').width( width );
 $('#container').height( height );
 $('.toolbar').width( width );
 
-info_uris = [];
-for (c=0; c<SAMPLES.length; c++) {
-  info_uris.push(SERVER + SAMPLES[c] + INFO);
+// Read a page's GET URL variables and return them as an associative array.
+function getUrlVars() {
+  var vars = [], hash;
+  var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+  for(var i = 0; i < hashes.length; i++) {
+    hash = hashes[i].split('=');
+    vars.push(hash[0]);
+    vars[hash[0]] = hash[1];
+  }
+  return vars;
 }
 
 var osd_config = {
@@ -39,7 +46,18 @@ var osd_config = {
   showNavigator:  true,
   visibilityRatio: 1,
   minZoomLevel: 1,
-  tileSources: info_uris
+  tileSources: []
+}
+
+
+feedMe = getUrlVars()['feedme'];
+
+if (feedMe) {
+  osd_config['tileSources'].push(SERVER + feedMe + INFO);
+} else {
+  for (c=0; c<SAMPLES.length; c++) {
+    osd_config['tileSources'].push(SERVER + SAMPLES[c] + INFO);
+  }
 }
 
 OpenSeadragon(osd_config);
