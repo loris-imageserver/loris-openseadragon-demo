@@ -1,8 +1,11 @@
 
-var SERVER = 'http://libimages.princeton.edu/loris/'
+// var SERVER = 'http://libimages.princeton.edu/loris/'
+// var SERVER = 'http://localhost/loris/'
+var SERVER = 'libimages.princeton.edu/loris/'
 var INFO = '/info.json'
 
 var SAMPLES = [
+// '01%2F02%2F0001.jp2'
   'pudl0001%2F5138415%2F00000011.jp2',
   'pudl0004%2Fcharter%2F00000001.jp2',
   'pudl0010%2F2005%2F00650%2F00000001.jp2',
