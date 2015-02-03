@@ -1,3 +1,3 @@
 Loris/IIIF and OpenSeadragon
 ============================
-Experiments with [OpenSeadragon](https://github.com/openseadragon/openseadragon) and [Loris](https://github.com/pulibrary/loris)/the[IIIF Image API](http://www-sul.stanford.edu/iiif/image-api/).
+Demo of [Loris](https://github.com/pulibrary/loris) and [OpenSeadragon](https://github.com/openseadragon/openseadragon) using the [IIIF Image API](http://iiif.io/api/image/).
